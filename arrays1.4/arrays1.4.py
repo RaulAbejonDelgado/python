@@ -2,8 +2,33 @@
 #################################### tutorial de listas tuplas acciones comunes y especificas ################################################
 #####################################################drohne@gmail.com#########################################################################
 ##########################################################V1.4################################################################################
-import controli
-
+def crearuser(user):
+    txt=open(str(user)+'.txt','a')
+    txt.close()
+    saberpaso()
+def saberpaso():
+    txt=open(str(user)+'.txt','r')
+    lineas=txt.readline()
+    print "La ultima consulta realizada fue en la leccion :"+str(lineas)
+    txt.close()
+    if lineas == '' :
+        intro()
+    else:
+        continu()
+    
+def continu():
+    print "quieres continuar desde el ultimo punto ?? s = si , n = no"
+    con= raw_input()
+    if con == 's' :
+        ultimo=open(str(user)+'.txt','r')
+        ulti=ultimo.readline()
+        ultimo.close()
+        continuar(int(ulti))
+    else:
+        indice()
+def grabartxt(user, continuar):
+    txt=open(str(user)+'.txt','w')
+    txt.write(str(continuar)+'\n')
     
 def intro():
     print "============================================================================================="
@@ -859,4 +884,4 @@ print "Hola !!! Bienvenido al tutorial interactivo sobre las listas y las ltupla
 print "Mi nombre es drohne y me gustaria guiarte por este tutorial"
 print "Antes de nada necesito saber tu nombre,para ayudarte a recordar el ultimo punto visto: Como te llamas ?"
 user = raw_input()
-controli.crearuser(user)
+crearuser(user)
